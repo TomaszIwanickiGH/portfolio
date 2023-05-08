@@ -11,3 +11,7 @@
   scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
 }
+
+.nav-mobile-bg {
+  background: rgba(33, 35, 44, 0.9);
+}
