@@ -1,16 +1,16 @@
 import React from 'react'
-import { Navbar, About, TechStack, Projects, Contact } from './components'
+import { Navbar, Hero, Skills, Services, Projects, Contact, Footer } from './components'
 
 const App = () => {
   return (
     <div>
-      <div>
-        <Navbar />
-        <About />
-      </div>
-      <TechStack />
+      <Navbar />
+      <Hero />
+      <Skills />
+      <Services />
       <Projects />
       <Contact />
+      <Footer />
     </div>
   )
 }

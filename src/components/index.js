@@ -1,7 +1,9 @@
 import Navbar from './Navbar'
-import About from './About'
-import TechStack from './TechStack'
+import Hero from './Hero'
+import Skills from './Skills'
+import Services from './Services'
 import Projects from './Projects'
-import Contact from './Navbar'
+import Contact from './Contact'
+import Footer from './Footer'
 
-export { Navbar, About, TechStack, Projects, Contact }
+export { Navbar, Hero, Skills, Services, Projects, Contact, Footer }
