@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { styles, data, images } from '../constants'
 
 import { motion } from 'framer-motion'
-import { slideIn } from '../constants/motion'
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false)
@@ -31,24 +30,22 @@ const Navbar = () => {
       </ul>
       <img src={images.iconHamburger} alt="menu" className={`${toggleMenu ? 'hidden' : 'flex'} md:hidden hover:cursor-pointer`} onClick={() => setToggleMenu((prev) => !prev)} />
 
-      {toggleMenu && (
-        <motion.div initial={{ opacity: 0, x: '-100%' }} animate={{ opacity: 1, x: 0 }} className="absolute right-0 top-0 h-[100vh] nav-mobile-bg w-3/5">
-          <div className="flex flex-col p-6">
-            <div className="flex justify-end">
-              <img src={images.iconClose} alt="close" onClick={() => setToggleMenu((prev) => !prev)} className="w-[20px] h-[20px]" />
-            </div>
-            <ul className="flex flex-col gap-12 mt-12">
-              {data.navLinks.map((link) => (
-                <a href={link.path} key={link.title}>
-                  <li className="text-white hover:text-secondary" onClick={() => setToggleMenu(false)}>
-                    {link.title}
-                  </li>
-                </a>
-              ))}
-            </ul>
+      <motion.div initial={{ opacity: 0, x: '100%' }} animate={{ opacity: 1, x: toggleMenu ? 0 : '100%' }} transition={{ duration: toggleMenu ? 0.3 : 0.5 }} className="absolute right-0 top-0 h-[100vh] nav-mobile-bg w-3/5">
+        <div className="flex flex-col p-6">
+          <div className="flex justify-end">
+            <img src={images.iconClose} alt="close" onClick={() => setToggleMenu((prev) => !prev)} className="w-[20px] h-[20px] hover:cursor-pointer" />
           </div>
-        </motion.div>
-      )}
+          <ul className="flex flex-col gap-12 mt-12">
+            {data.navLinks.map((link) => (
+              <a href={link.path} key={link.title}>
+                <li className="text-white hover:text-secondary" onClick={() => setToggleMenu(false)}>
+                  {link.title}
+                </li>
+              </a>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
     </nav>
   )
 }
