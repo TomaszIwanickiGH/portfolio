@@ -15,3 +15,7 @@
 .nav-mobile-bg {
   background: rgba(33, 35, 44, 0.9);
 }
+
+.custom-btn {
+  @apply bg-secondary hover:bg-white border-none text-white hover:text-secondary px-4 py-3 rounded-md mt-2;
+}
