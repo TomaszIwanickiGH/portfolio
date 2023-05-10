@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
   return (
-    <section className={`${styles.padding} flex lg:flex-row flex-col-reverse justify-between bg-darkGray`}>
-      <motion.div initial={{ x: '-30%' }} animate={{ x: 0 }} transition={{ duration: 0.9 }} className="flex flex-col lg:items-start items-center my-4 gap-6">
+    <section className={`${styles.padding} flex lg:flex-row flex-col-reverse justify-between bg-darkGray`} id="home">
+      <motion.div initial={{ x: '-30%' }} animate={{ x: 0 }} transition={{ duration: 0.9 }} className="flex flex-col lg:items-start items-center mt-16 lg:mb-28 mb-16 gap-6">
         <div className="flex flex-col lg:items-start items-center">
           <p className="text-white font-[500] text-[24px]">
             Hello, <span className="text-secondary ml-2">I'm</span>
@@ -15,7 +15,7 @@ const Hero = () => {
         </div>
         <p className="text-lightGray text-[14px] lg:w-1/2 w-full lg:text-start text-center">I create web pages with UI/UX user interface. With knowledge in web development, I offer the best projects and designs.</p>
         <a href="#contact">
-          <button className="w-[120px] bg-secondary hover:bg-white border-none text-white hover:text-secondary px-4 py-3 rounded-md mt-2">Let's Talk</button>
+          <button className="custom-btn w-[120px]">Let's Talk</button>
         </a>
       </motion.div>
       <motion.div initial={{ x: '30%' }} animate={{ x: 0 }} transition={{ duration: 0.9 }} className="xl:w-1/2 w-full lg:mb-0 my-6">
