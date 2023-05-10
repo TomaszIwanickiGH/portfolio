@@ -22,7 +22,6 @@ const Services = () => {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: '-40%' },
         }}
-        class
         className="flex flex-col gap-2 justify-center items-center mt-12"
       >
         <h3 className="text-white text-center">
