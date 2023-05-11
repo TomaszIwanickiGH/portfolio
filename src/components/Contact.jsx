@@ -22,35 +22,37 @@ const Contact = () => {
     e.preventDefault()
     setLoading(true)
 
-    emailjs
-      .send(
-        'service_c4z1w2a',
-        'template_rnvu0kh',
-        {
-          from_name: form.name,
-          to_name: 'Tomasz',
-          from_email: form.email,
-          to_email: 'tomasz.iwanicki@onet.pl',
-          message: form.message,
-        },
-        'ar4cYOV9TS7R9r-Ru'
-      )
-      .then(
-        () => {
-          setLoading(false)
-          alert('Thank you. I will get back to you as soon as possible.')
-          setForm({
-            name: '',
-            email: '',
-            message: '',
-          })
-        },
-        (error) => {
-          setLoading(false)
-          console.log(error)
-          alert('Something went wrong.')
-        }
-      )
+    if (form.name !== '' && form.email !== '' && form.message !== '')
+      emailjs
+        .send(
+          'service_c4z1w2a',
+          'template_rnvu0kh',
+          {
+            from_name: form.name,
+            to_name: 'Tomasz',
+            from_email: form.email,
+            to_email: 'tomasz.iwanicki@onet.pl',
+            message: form.message,
+          },
+          'ar4cYOV9TS7R9r-Ru'
+        )
+        .then(
+          () => {
+            setLoading(false)
+            alert('Thank you. I will get back to you as soon as possible.')
+            setForm({
+              name: '',
+              email: '',
+              message: '',
+            })
+          },
+          (error) => {
+            setLoading(false)
+            console.log(error)
+            alert('Something went wrong.')
+          }
+        )
+    else setLoading(false)
   }
 
   return (
