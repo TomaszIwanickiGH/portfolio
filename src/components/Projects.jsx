@@ -48,7 +48,7 @@ const Projects = () => {
         </h3>
         <h2 className="text-white md:text-[36px] text-[28px] font-[600]">Recent Projects</h2>
       </motion.div>
-      <div className="flex flex-col gap-8 items-center">
+      <div className="flex flex-col gap-8 items-center mb-8">
         {data.projects.map((project, index) => (
           <motion.div
             initial="hidden"
@@ -59,8 +59,9 @@ const Projects = () => {
               visible: { opacity: 1, x: 0 },
               hidden: { opacity: 0, x: '-40%' },
             }}
+            key={project.title}
           >
-            <Project key={project.title} {...project} />
+            <Project {...project} />
           </motion.div>
         ))}
       </div>
