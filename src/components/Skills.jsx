@@ -13,7 +13,7 @@ const Skills = () => {
           <h2 className="text-white text-[36px] font-[600]">My Skills</h2>
         </div>
         <p className="text-[14px] text-lightGray lg:text-start text-center">
-          See fully what skills I have and perform. There are the ones I'm <br className="md:flex hidden" /> the most confident with.
+          See fully what skills I have and perform. These are the ones I'm <br className="md:flex hidden" /> the most confident with.
         </p>
         <a href="#projects" className="lg:text-start text-center">
           <button className="custom-btn w-[150px]">See projects</button>
