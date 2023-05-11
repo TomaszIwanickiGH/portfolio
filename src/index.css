@@ -23,3 +23,7 @@
 .word-spacing {
   word-spacing: 20px;
 }
+
+.custom-input {
+  @apply bg-primary px-6 py-4 rounded-xl text-secondary focus:outline-secondary hover:outline-secondary outline-none border-none cursor-pointer;
+}
