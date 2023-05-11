@@ -1,10 +1,60 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { styles } from '../constants'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
+  const formRef = useRef()
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+  const [loading, setLoading] = useState(false)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setForm({ ...form, [name]: value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setLoading(true)
+
+    emailjs
+      .send(
+        'service_c4z1w2a',
+        'template_rnvu0kh',
+        {
+          from_name: form.name,
+          to_name: 'Tomasz',
+          from_email: form.email,
+          to_email: 'tomasz.iwanicki@onet.pl',
+          message: form.message,
+        },
+        'ar4cYOV9TS7R9r-Ru'
+      )
+      .then(
+        () => {
+          setLoading(false)
+          alert('Thank you. I will get back to you as soon as possible.')
+          setForm({
+            name: '',
+            email: '',
+            message: '',
+          })
+        },
+        (error) => {
+          setLoading(false)
+          console.log(error)
+          alert('Something went wrong.')
+        }
+      )
+  }
+
   return (
-    <section className={`${styles.padding} flex flex-col items-center gap-12 bg-darkGray`}>
+    <section id="contact" className={`${styles.padding} flex flex-col items-center gap-12 bg-darkGray`}>
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -31,15 +81,17 @@ const Contact = () => {
           hidden: { opacity: 0, x: '-40%' },
         }}
         className="flex flex-col items-center lg:w-[800px] w-full  mb-8"
+        ref={formRef}
+        onSubmit={handleSubmit}
       >
         <div className="flex md:flex-row flex-col justify-between gap-6 w-full">
-          <input type="text" placeholder="Enter your name" className="custom-input  w-full" />
-          <input type="text" placeholder="Enter your email" className="custom-input  w-full" />
+          <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Enter your name" className="custom-input  w-full" />
+          <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Enter your email" className="custom-input  w-full" />
         </div>
-        <textarea placeholder="Enter your message" className="custom-input resize-none  w-full h-[300px] mt-6"></textarea>
+        <textarea placeholder="Enter your message" name="message" value={form.message} onChange={handleChange} className="custom-input resize-none  w-full h-[300px] mt-6"></textarea>
         <div className="mt-8">
           <button type="submit" className="custom-btn">
-            Send Message
+            {loading ? 'Sending...' : 'Send Message'}
           </button>
         </div>
       </motion.form>
