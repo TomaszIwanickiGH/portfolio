@@ -1,5 +1,5 @@
 import React from 'react'
-import { styles } from '../constants'
+import { images, styles } from '../constants'
 
 const Footer = () => {
   return (
@@ -10,18 +10,12 @@ const Footer = () => {
             Tomasz <span className="text-secondary">Iwanicki</span>
           </p>
         </a>
-        <p className="text-white">Front-end Developer</p>
-      </div>
-      <div className="md:text-start text-center">
-        <p className="text-lightGray lg:block hidden">
-          <span className="text-white font-bold">Contact me</span> through the form showed above or:
-        </p>
-        <p className="text-lightGray">
-          Tel: <span className="font-bold text-white ml-2"> 794 478 594</span>
-        </p>
-        <p className="text-lightGray">
-          Email:<span className="font-bold text-white ml-2"> tomasz.iwanicki@onet.pl</span>
-        </p>
+        <div className="flex gap-2">
+          <p className="text-white">Front-end Developer</p>
+          <a href="https://github.com/TomaszIwanickiGH" target="_blank">
+            <img src={images.githubLogo} alt="github" className="w-[23px] h-[23px]" />
+          </a>
+        </div>
       </div>
       <p className="text-lightGray text-[14px]">Copyright &copy; All Rights Reserved.</p>
     </footer>
